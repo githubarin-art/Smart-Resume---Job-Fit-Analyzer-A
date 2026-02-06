@@ -31,7 +31,7 @@ A modern full-stack application designed for extendability and performance.
 graph TD
     Client[React Frontend] <--> API[FastAPI Backend]
     API --> Parser[Resume/JD Parsers]
-    API --> Matcher[Skill Matcher (RapidFuzz)]
+    API --> Matcher["Skill Matcher (RapidFuzz)"]
     API --> Scorer[Rule Engine]
     Matcher --> Taxonomy[Skills Database]
     Scorer --> Config[Scoring Weights]
