@@ -1,0 +1,191 @@
+{
+  "session_id": "8be5cb37-0084-4baa-b27e-5892e03c33f1",
+  "resume": {
+    "raw_text": "Anurag Mishra\nSoftware Developer\nAddress: Gwalior, Madhya Pradesh, India\nCONTACT Phone: +91 7000597872\nLinkedin : Anurag Mishra\nEmail: anuragmishra8835@gmail.com\nGithub : Anurag Mishra\nPROFESSIONAL IETE Students’ Forum (On-Campus) | 2025-2026\nEXPERIENCE\nGraphic Designer\nDesigned posters and social media creatives for technical events, workshops, and hackathons, improving\nevent visibility and student engagement.\nCollaborated with core team members to maintain a consistent visual identity across digital platforms and\noffline promotional materials.\nSupported branding and communication efforts for student-led technical initiatives, contributing to\nimproved outreach and participation within the campus community.\nEDUCATION Madhav Institute of Technology and Science, Gwalior | 2024-2028\nBachelor of Technology - B.Tech, Computer Science & Design\nGPA: 8.09\nWorking Member of the Graphic Team, IETE Students’ FORUM (On Campus)\nRecognition for having successfully built a IoT Embedded Systems Kit.\nMaharaja Public School, Bela Satna(M.P) | 2022-2023\nSenior Secondary\nSKILLS Full Stack development\nDSA in C++\nGraphic Designer\nCERTIFICATES AWS APAC - Solutions Architecture Job Simulation\nBy Forage and AWS\nMeta Frontend Development Course Certification\nBy Coursera",
+    "education": [
+      {
+        "institution": "Madhav Institute of Technology and Science",
+        "degree": "M.A.",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": null,
+        "source_text": "Madhav Institute of Technology and Science, Gwalior | 2024-2028"
+      },
+      {
+        "institution": "Bachelor of Technology",
+        "degree": "Bachelor's",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": "8.09",
+        "source_text": "Bachelor of Technology - B.Tech, Computer Science & Design"
+      },
+      {
+        "institution": "Recognition for having successfully built a IoT Embedded Systems Kit.",
+        "degree": "M.S.",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": null,
+        "source_text": "Recognition for having successfully built a IoT Embedded Systems Kit."
+      },
+      {
+        "institution": "Maharaja Public School",
+        "degree": "M.A.",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": null,
+        "source_text": "Maharaja Public School, Bela Satna(M.P) | 2022-2023"
+      }
+    ],
+    "experience": [
+      {
+        "company": "Graphic Designer",
+        "title": "Graphic Designer",
+        "start_date": null,
+        "end_date": null,
+        "description": "",
+        "responsibilities": [],
+        "source_text": "Graphic Designer"
+      },
+      {
+        "company": "event visibility and student engagement.",
+        "title": "event visibility and student engagement.",
+        "start_date": "2024",
+        "end_date": "2028",
+        "description": "",
+        "responsibilities": [],
+        "source_text": "event visibility and student engagement."
+      },
+      {
+        "company": "Working Member of the Graphic Team",
+        "title": "IETE Students’ FORUM (On Campus)",
+        "start_date": "2022",
+        "end_date": "2023",
+        "description": "",
+        "responsibilities": [],
+        "source_text": "Working Member of the Graphic Team, IETE Students’ FORUM (On Campus)"
+      },
+      {
+        "company": "Senior Secondary",
+        "title": "Senior Secondary",
+        "start_date": null,
+        "end_date": null,
+        "description": "",
+        "responsibilities": [],
+        "source_text": "Senior Secondary"
+      }
+    ],
+    "projects": [],
+    "certifications": [],
+    "skills": [
+      {
+        "name": "aws",
+        "canonical_name": "AWS",
+        "category": "cloud",
+        "confidence": "high",
+        "source_text": "elopment\nDSA in C++\nGraphic Designer\nCERTIFICATES AWS APAC - Solutions Architecture Job Simulation\nBy F",
+        "line_number": null
+      },
+      {
+        "name": "full stack",
+        "canonical_name": "Full Stack Development",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "Full Stack development\nDSA in C++\nGraphic Designer\nCERTIFICA",
+        "line_number": null
+      },
+      {
+        "name": "frontend",
+        "canonical_name": "Frontend Development",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "rchitecture Job Simulation\nBy Forage and AWS\nMeta Frontend Development Course Certification\nBy Coursera",
+        "line_number": null
+      },
+      {
+        "name": "dsa",
+        "canonical_name": "Data Structures & Algorithms",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "Full Stack development\nDSA in C++\nGraphic Designer\nCERTIFICATES AWS APAC - S",
+        "line_number": null
+      },
+      {
+        "name": "graphic designer",
+        "canonical_name": "Graphic Design",
+        "category": "tools",
+        "confidence": "high",
+        "source_text": "Full Stack development\nDSA in C++\nGraphic Designer\nCERTIFICATES AWS APAC - Solutions Architecture Jo",
+        "line_number": null
+      },
+      {
+        "name": "coursera",
+        "canonical_name": "Coursera",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "Meta Frontend Development Course Certification\nBy Coursera",
+        "line_number": null
+      },
+      {
+        "name": "forage",
+        "canonical_name": "Forage",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "S APAC - Solutions Architecture Job Simulation\nBy Forage and AWS\nMeta Frontend Development Course Certific",
+        "line_number": null
+      },
+      {
+        "name": "github",
+        "canonical_name": "GitHub",
+        "category": "tools",
+        "confidence": "high",
+        "source_text": ": Anurag Mishra\nEmail: anuragmishra8835@gmail.com\nGithub : Anurag Mishra\nPROFESSIONAL IETE Students’ Forum",
+        "line_number": null
+      },
+      {
+        "name": "communication",
+        "canonical_name": "Communication",
+        "category": "soft_skills",
+        "confidence": "high",
+        "source_text": "ine promotional materials.\nSupported branding and communication efforts for student-led technical initiatives, co",
+        "line_number": null
+      },
+      {
+        "name": "iot",
+        "canonical_name": "IoT",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "mpus)\nRecognition for having successfully built a IoT Embedded Systems Kit.\nMaharaja Public School, Bel",
+        "line_number": null
+      },
+      {
+        "name": "embedded systems",
+        "canonical_name": "Embedded Systems",
+        "category": "other",
+        "confidence": "high",
+        "source_text": ")\nRecognition for having successfully built a IoT Embedded Systems Kit.\nMaharaja Public School, Bela Satna(M.P) | 20",
+        "line_number": null
+      },
+      {
+        "name": "social media",
+        "canonical_name": "Social Media",
+        "category": "tools",
+        "confidence": "high",
+        "source_text": "\nEXPERIENCE\nGraphic Designer\nDesigned posters and social media creatives for technical events, workshops, and ha",
+        "line_number": null
+      }
+    ],
+    "contact_info": {
+      "email": "anuragmishra8835@gmail.com",
+      "phone": "+91 7000597872"
+    },
+    "parsing_warnings": []
+  },
+  "job_description": null,
+  "evaluation": null,
+  "created_at": "2026-02-07T00:11:48.609087",
+  "updated_at": "2026-02-07T00:11:48.609123"
+}

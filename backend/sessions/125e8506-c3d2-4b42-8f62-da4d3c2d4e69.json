@@ -1,0 +1,176 @@
+{
+  "session_id": "125e8506-c3d2-4b42-8f62-da4d3c2d4e69",
+  "resume": {
+    "raw_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Corp (2020-Present): Built scalable APIs using FastAPI and Python.\n- Developer at Startup Inc (2018-2020): Frontend development with React and Redux.\nEducation:\n- B.Tech in Computer Science, 2018",
+    "education": [
+      {
+        "institution": "",
+        "degree": "B.Tech",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": null,
+        "source_text": "- B.Tech in Computer Science, 2018"
+      }
+    ],
+    "experience": [],
+    "projects": [],
+    "certifications": [],
+    "skills": [
+      {
+        "name": "python",
+        "canonical_name": "Python",
+        "category": "programming_languages",
+        "confidence": "high",
+        "source_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- S",
+        "line_number": null
+      },
+      {
+        "name": "sql",
+        "canonical_name": "SQL",
+        "category": "programming_languages",
+        "confidence": "high",
+        "source_text": "Software Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tec",
+        "line_number": null
+      },
+      {
+        "name": "react",
+        "canonical_name": "React",
+        "category": "frameworks",
+        "confidence": "high",
+        "source_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior E",
+        "line_number": null
+      },
+      {
+        "name": "fastapi",
+        "canonical_name": "FastAPI",
+        "category": "frameworks",
+        "confidence": "high",
+        "source_text": "g Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer a",
+        "line_number": null
+      },
+      {
+        "name": "aws",
+        "canonical_name": "AWS",
+        "category": "cloud",
+        "confidence": "high",
+        "source_text": "are Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Cor",
+        "line_number": null
+      },
+      {
+        "name": "docker",
+        "canonical_name": "Docker",
+        "category": "tools",
+        "confidence": "high",
+        "source_text": "ngineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Corp (2020-",
+        "line_number": null
+      },
+      {
+        "name": "frontend",
+        "canonical_name": "Frontend Development",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "d Python.\n- Developer at Startup Inc (2018-2020): Frontend development with React and Redux.\nEducation:\n- B.",
+        "line_number": null
+      }
+    ],
+    "contact_info": {},
+    "parsing_warnings": []
+  },
+  "job_description": {
+    "raw_text": "We are looking for a Senior Software Engineer with Python, FastAPI, and AWS experience. React is a plus.",
+    "title": null,
+    "company": null,
+    "requirements": [],
+    "required_skills": [
+      "Python",
+      "React",
+      "AWS",
+      "FastAPI"
+    ],
+    "optional_skills": [],
+    "experience_requirements": null,
+    "education_requirements": null
+  },
+  "evaluation": {
+    "job_fit_score": 80,
+    "confidence_level": "medium",
+    "score_breakdown": {
+      "required_skills_score": 100.0,
+      "optional_skills_score": 100.0,
+      "experience_depth_score": 50.0,
+      "education_match_score": 50.0,
+      "weights_applied": {
+        "required_skills": 0.4,
+        "optional_skills": 0.2,
+        "experience_depth": 0.25,
+        "education_match": 0.15
+      },
+      "penalties_applied": []
+    },
+    "skill_matches": [
+      {
+        "skill_name": "Python",
+        "canonical_name": "Python",
+        "match_type": "matched",
+        "confidence": "high",
+        "jd_priority": "required",
+        "evidence": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- S",
+        "line_number": null,
+        "match_score": 1.0
+      },
+      {
+        "skill_name": "React",
+        "canonical_name": "React",
+        "match_type": "matched",
+        "confidence": "high",
+        "jd_priority": "required",
+        "evidence": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior E",
+        "line_number": null,
+        "match_score": 1.0
+      },
+      {
+        "skill_name": "AWS",
+        "canonical_name": "AWS",
+        "match_type": "matched",
+        "confidence": "high",
+        "jd_priority": "required",
+        "evidence": "are Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Cor",
+        "line_number": null,
+        "match_score": 1.0
+      },
+      {
+        "skill_name": "FastAPI",
+        "canonical_name": "FastAPI",
+        "match_type": "matched",
+        "confidence": "high",
+        "jd_priority": "required",
+        "evidence": "g Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer a",
+        "line_number": null,
+        "match_score": 1.0
+      }
+    ],
+    "matched_count": 4,
+    "partial_count": 0,
+    "missing_count": 0,
+    "explanation": "Your job-fit score is 80/100.\n\nThis score reflects:\n• 4 of 4 required skills matched (100% score)\n• 0 of 0 preferred skills matched (100% score)\n• Experience depth score: 50%\n• Education alignment score: 50%",
+    "experience_signals": {
+      "relevant_years": 0.0,
+      "ownership_strength": "Low",
+      "leadership_signals": [],
+      "responsibility_alignment": "Found 0 roles with strong ownership signals."
+    },
+    "improvement_suggestions": [
+      {
+        "category": "Experience",
+        "priority": 3,
+        "suggestion": "Add a detailed work experience section with responsibilities and achievements",
+        "evidence_gap": null,
+        "affected_skills": []
+      }
+    ],
+    "advisory_notice": "This analysis is advisory only and should not be used as the sole basis for hiring decisions."
+  },
+  "created_at": "2026-02-07T00:07:27.951764",
+  "updated_at": "2026-02-07T00:07:32.522528"
+}

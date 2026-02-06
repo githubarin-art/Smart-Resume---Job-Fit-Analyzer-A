@@ -1,0 +1,84 @@
+{
+  "session_id": "25d9e92c-daff-4369-86e3-86a3bf9d2706",
+  "resume": {
+    "raw_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Corp (2020-Present): Built scalable APIs using FastAPI and Python.\n- Developer at Startup Inc (2018-2020): Frontend development with React and Redux.\nEducation:\n- B.Tech in Computer Science, 2018",
+    "education": [
+      {
+        "institution": "",
+        "degree": "B.Tech",
+        "field_of_study": null,
+        "start_date": null,
+        "end_date": null,
+        "gpa": null,
+        "source_text": "- B.Tech in Computer Science, 2018"
+      }
+    ],
+    "experience": [],
+    "projects": [],
+    "certifications": [],
+    "skills": [
+      {
+        "name": "python",
+        "canonical_name": "Python",
+        "category": "programming_languages",
+        "confidence": "high",
+        "source_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- S",
+        "line_number": null
+      },
+      {
+        "name": "sql",
+        "canonical_name": "SQL",
+        "category": "programming_languages",
+        "confidence": "high",
+        "source_text": "Software Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tec",
+        "line_number": null
+      },
+      {
+        "name": "react",
+        "canonical_name": "React",
+        "category": "frameworks",
+        "confidence": "high",
+        "source_text": "Anurag Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior E",
+        "line_number": null
+      },
+      {
+        "name": "fastapi",
+        "canonical_name": "FastAPI",
+        "category": "frameworks",
+        "confidence": "high",
+        "source_text": "g Mishra\nSoftware Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer a",
+        "line_number": null
+      },
+      {
+        "name": "aws",
+        "canonical_name": "AWS",
+        "category": "cloud",
+        "confidence": "high",
+        "source_text": "are Engineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Cor",
+        "line_number": null
+      },
+      {
+        "name": "docker",
+        "canonical_name": "Docker",
+        "category": "tools",
+        "confidence": "high",
+        "source_text": "ngineer\nSkills: Python, React, FastAPI, SQL, AWS, Docker\nExperience:\n- Senior Engineer at Tech Corp (2020-",
+        "line_number": null
+      },
+      {
+        "name": "frontend",
+        "canonical_name": "Frontend Development",
+        "category": "other",
+        "confidence": "high",
+        "source_text": "d Python.\n- Developer at Startup Inc (2018-2020): Frontend development with React and Redux.\nEducation:\n- B.",
+        "line_number": null
+      }
+    ],
+    "contact_info": {},
+    "parsing_warnings": []
+  },
+  "job_description": null,
+  "evaluation": null,
+  "created_at": "2026-02-07T00:06:09.877894",
+  "updated_at": "2026-02-07T00:06:09.877942"
+}

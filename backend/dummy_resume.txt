@@ -1,0 +1,8 @@
+Anurag Mishra
+Software Engineer
+Skills: Python, React, FastAPI, SQL, AWS, Docker
+Experience:
+- Senior Engineer at Tech Corp (2020-Present): Built scalable APIs using FastAPI and Python. managed AWS infrastructure.
+- Developer at Startup Inc (2018-2020): Frontend development with React and Redux.
+Education:
+- B.Tech in Computer Science, 2018
