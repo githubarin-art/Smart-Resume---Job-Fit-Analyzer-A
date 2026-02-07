@@ -98,7 +98,7 @@ export default function AnalysisProgress({ session, setSession }: AnalysisProgre
     }
 
     return (
-        <div className="max-w-[420px] mx-auto py-20 animate-fade-in">
+        <div className="max-w-[420px] w-full mx-auto py-20 px-6 animate-fade-in">
             <h2 className="h2 text-center mb-10">Analyzing Profile</h2>
 
             <div className="space-y-4">

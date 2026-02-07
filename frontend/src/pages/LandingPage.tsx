@@ -24,7 +24,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Headline */}
-                    <h1 className="text-5xl md:text-7xl font-bold text-[var(--color-neutral-900)] mb-6 leading-tight tracking-tight">
+                    <h1 className="text-4xl md:text-7xl font-bold text-[var(--color-neutral-900)] mb-6 leading-tight tracking-tight">
                         Land Your Dream Job
                         <br />
                         <span className="relative">
@@ -96,7 +96,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Bento Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 px-4 md:px-0">
 
                         {/* Main Feature - Fit Score */}
                         <div className="md:col-span-7 bg-gradient-to-br from-[var(--color-primary-600)] to-[var(--color-primary-700)] rounded-3xl p-8 text-white relative overflow-hidden group">

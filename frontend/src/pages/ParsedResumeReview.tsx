@@ -203,25 +203,25 @@ export default function ParsedResumeReview({ resume, sessionId, onContinue }: Pa
     return (
         <div className="max-w-[1240px] mx-auto animate-fade-in h-[calc(100vh-140px)] flex flex-col">
             {/* Summary Stats Bar */}
-            <div className="flex items-center gap-6 mb-4 p-4 bg-white border border-[var(--color-neutral-200)] rounded-[12px] shadow-sm">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-4 p-4 bg-white border border-[var(--color-neutral-200)] rounded-[12px] shadow-sm">
                 <div className="flex items-center gap-2">
                     <Code className="w-5 h-5 text-[var(--color-primary-500)]" />
                     <span className="font-semibold text-[var(--color-neutral-900)]">{localResume.skills.length}</span>
                     <span className="text-sm text-[var(--color-neutral-500)]">skills</span>
                 </div>
-                <div className="w-px h-6 bg-[var(--color-neutral-200)]" />
+                <div className="hidden sm:block w-px h-6 bg-[var(--color-neutral-200)]" />
                 <div className="flex items-center gap-2">
                     <Briefcase className="w-5 h-5 text-[var(--color-amber-500)]" />
                     <span className="font-semibold text-[var(--color-neutral-900)]">{localResume.experience.length}</span>
                     <span className="text-sm text-[var(--color-neutral-500)]">roles</span>
                 </div>
-                <div className="w-px h-6 bg-[var(--color-neutral-200)]" />
+                <div className="hidden sm:block w-px h-6 bg-[var(--color-neutral-200)]" />
                 <div className="flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-[var(--color-green-500)]" />
                     <span className="font-semibold text-[var(--color-neutral-900)]">{localResume.education.length}</span>
                     <span className="text-sm text-[var(--color-neutral-500)]">degrees</span>
                 </div>
-                <div className="w-px h-6 bg-[var(--color-neutral-200)]" />
+                <div className="hidden sm:block w-px h-6 bg-[var(--color-neutral-200)]" />
                 <div className="flex items-center gap-2">
                     <FolderGit2 className="w-5 h-5 text-[var(--color-purple-500)]" />
                     <span className="font-semibold text-[var(--color-neutral-900)]">{localResume.projects.length}</span>
@@ -457,7 +457,7 @@ export default function ParsedResumeReview({ resume, sessionId, onContinue }: Pa
                                             >
                                                 <Trash2 className="w-4 h-4" />
                                             </button>
-                                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                                 <div>
                                                     <label className="text-xs font-medium text-[var(--color-neutral-500)] uppercase">Company</label>
                                                     <input
@@ -483,7 +483,7 @@ export default function ParsedResumeReview({ resume, sessionId, onContinue }: Pa
                                                     />
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                                 <div>
                                                     <label className="text-xs font-medium text-[var(--color-neutral-500)] uppercase flex items-center gap-1">
                                                         <Calendar className="w-3 h-3" /> Start Date
@@ -554,7 +554,7 @@ export default function ParsedResumeReview({ resume, sessionId, onContinue }: Pa
                                             >
                                                 <Trash2 className="w-4 h-4" />
                                             </button>
-                                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                                 <div>
                                                     <label className="text-xs font-medium text-[var(--color-neutral-500)] uppercase">Institution</label>
                                                     <input
@@ -580,7 +580,7 @@ export default function ParsedResumeReview({ resume, sessionId, onContinue }: Pa
                                                     />
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                 <div>
                                                     <label className="text-xs font-medium text-[var(--color-neutral-500)] uppercase">Field of Study</label>
                                                     <input
