@@ -247,12 +247,7 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="py-8 border-t border-[var(--color-neutral-200)]">
-                <div className="container text-center text-sm text-[var(--color-neutral-500)]">
-                    <p>Built with ❤️ for job seekers • Open Source Project</p>
-                </div>
-            </footer>
+
         </div>
     );
 }

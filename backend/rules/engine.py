@@ -61,7 +61,7 @@ class RuleEngine:
         """
         # Step 1: Match skills
         skill_results = match_skills(
-            resume_skills=[s.model_dump() for s in resume.skills],
+            resume_skills=[s.dict() for s in resume.skills],
             jd_required_skills=job_description.required_skills,
             jd_optional_skills=job_description.optional_skills,
             full_match_threshold=self.thresholds["full_match"],

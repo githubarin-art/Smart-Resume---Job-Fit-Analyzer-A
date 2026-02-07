@@ -193,7 +193,7 @@ const CategoryTabs = ({
     ];
 
     return (
-        <div className="flex gap-2 p-1 bg-[var(--color-neutral-100)] rounded-xl mb-4">
+        <div className="flex gap-2 p-1 bg-[var(--color-neutral-100)] rounded-xl mb-4 overflow-x-auto no-scrollbar">
             {tabs.map(tab => (
                 <button
                     key={tab.id}
