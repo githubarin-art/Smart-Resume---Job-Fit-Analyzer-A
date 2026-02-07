@@ -125,7 +125,7 @@ class RuleEngine:
         )
         
         # Step 8: Generate improvement suggestions
-        suggestions = self._generate_suggestions(skill_results, resume)
+        suggestions = self._generate_suggestions(skill_results, resume, job_description)
         
         # Step 9: Analyze experience signals
         from api.schemas import ExperienceSignals, ConfidenceLevel
@@ -324,12 +324,43 @@ This score reflects:
         self,
         skill_results: dict,
         resume: ParsedResume,
+        job_description: ParsedJobDescription,
     ) -> list[ImprovementSuggestion]:
         """Generate actionable improvement suggestions."""
         suggestions = []
         max_suggestions = self.config.get("output", {}).get("max_suggestions", 5)
         
-        # Priority 1: Missing required skills
+        
+        # Determine domain for specific checks
+        domain = self._detect_domain(job_description)
+        
+        # Priority 1: Formatting & Structure Gaps (Immediate fix)
+        # Check contact info
+        contact_gaps = []
+        if not resume.contact_info.get("email"):
+            contact_gaps.append("email")
+        if not resume.contact_info.get("phone"):
+            contact_gaps.append("phone number")
+        
+        # Check for LinkedIn/GitHub for tech roles
+        is_tech_role = domain in ["software_engineering", "data_science"] or \
+                      any(s in job_description.raw_text.lower() for s in ["software", "developer", "engineer", "data", "full stack"])
+                      
+        if is_tech_role:
+            if not resume.contact_info.get("linkedin"):
+                contact_gaps.append("LinkedIn profile")
+            if not resume.contact_info.get("github") and "github" not in str(resume.contact_info).lower():
+                 # Only suggest GitHub if it's a coding role
+                contact_gaps.append("GitHub profile")
+                
+        if contact_gaps:
+            suggestions.append(ImprovementSuggestion(
+                category="Formatting",
+                priority=1,
+                suggestion=f"Add missing contact information: {', '.join(contact_gaps)}",
+            ))
+
+        # Priority 2: Missing required skills
         for skill in skill_results["missing_required"][:3]:
             suggestions.append(ImprovementSuggestion(
                 category="Missing Skill",
@@ -338,37 +369,118 @@ This score reflects:
                 affected_skills=[skill],
             ))
         
-        # Priority 2: Partially matched skills need more evidence
+        # Priority 3: Experience Quality Gaps
+        if not resume.experience:
+             suggestions.append(ImprovementSuggestion(
+                category="Experience",
+                priority=1,
+                suggestion="Add a detailed work experience section with responsibilities and achievements",
+            ))
+        else:
+            # Domain-Specific Checks
+            if domain == "finance":
+                # Stricter checks: require currency symbols or specific metric keywords with numbers
+                # e.g. "$50k", "15% margin", "budget of 50k"
+                finance_metrics = [
+                    r"[\$€£]\s*\d+",           # Currency + number
+                    r"\d+\s*%",                # Percentage
+                    r"\d+\s*(?:k|m|b)\+?",     # Short numbers (50k, 10m)
+                    r"budget\s*(?:of)?\s*[\$€£]?\d+", # Budget + number
+                    r"saved\s*[\$€£]?\d+",     # Saved + number
+                    r"revenue",                # specific enough? maybe 
+                    r"profit\s*margin" 
+                ]
+                
+                has_finance_metrics = any(
+                    any(re.search(pat, " ".join(exp.responsibilities), re.IGNORECASE) for pat in finance_metrics)
+                    for exp in resume.experience
+                )
+                
+                if not has_finance_metrics:
+                     suggestions.append(ImprovementSuggestion(
+                        category="Domain Gap",
+                        priority=1,
+                        suggestion="Finance roles require quantifiable results. Highlight budgets managed, cost savings, or revenue growth ($/%) in your bullet points.",
+                    ))
+            
+            elif domain == "healthcare":
+                # Healthcare: Check for patient volume or specific clinical terms
+                # "patient" is too generic if just "saw patients". 
+                # Look for "caseload", "acuity", "triage", "compliance" or numbers + patient
+                health_context = [
+                    r"caseload",
+                    r"acuity",
+                    r"triage",
+                    r"vital\s*signs",
+                    r"compliance",
+                    r"hipaa",
+                    r"\d+\s*patients", # "20 patients"
+                    r"administer(?:ed)?\s*med" # "administered medication" - clearer action
+                ]
+                
+                has_health_context = any(
+                    any(re.search(pat, " ".join(exp.responsibilities), re.IGNORECASE) for pat in health_context)
+                    for exp in resume.experience
+                )
+                
+                if not has_health_context:
+                    suggestions.append(ImprovementSuggestion(
+                        category="Domain Gap",
+                        priority=1,
+                        suggestion="Emphasize patient outcomes, clinical volume (e.g., 'managed 20+ patients'), and specific care procedures.",
+                    ))
+
+            # General Weak Verbs Check
+            strong_verbs = {"led", "developed", "created", "managed", "designed", "implemented", "architected", "improved", "increased", "decreased", "saved", "launched", "engineered", "optimized", "spearheaded", "forecasted", "audited", "diagnosed", "treated", "administered"}
+            weak_starts = 0
+            total_bullets = 0
+            
+            for exp in resume.experience:
+                for bullet in exp.responsibilities:
+                    total_bullets += 1
+                    first_word = bullet.strip().split()[0].lower() if bullet.strip() else ""
+                    if first_word not in strong_verbs and not first_word.endswith("ed"): # Simple heuristic
+                         weak_starts += 1
+            
+            if total_bullets > 0 and (weak_starts / total_bullets) > 0.5:
+                 suggestions.append(ImprovementSuggestion(
+                    category="Impact",
+                    priority=2,
+                    suggestion="Start bullet points with strong action verbs (e.g., 'Led', 'Developed', 'Optimized') instead of passive language.",
+                ))
+
+            # General Metrics Check (skip if specific domain check failed already to avoid double dipping)
+            has_metrics = any(
+                re.search(r'\d+%|\d+ (users|customers|requests|\$)|[\$€£]\d+', 
+                         " ".join(exp.responsibilities))
+                for exp in resume.experience
+            )
+            if not has_metrics and domain != "finance": # Finance already checked specifically
+                suggestions.append(ImprovementSuggestion(
+                    category="Quantify Impact",
+                    priority=2,
+                    suggestion="Add quantifiable metrics to your experience (e.g., 'Improved performance by 40%', 'Managed team of 10')",
+                ))
+            
+            # Check for short bullets
+            short_bullets = sum(1 for exp in resume.experience for b in exp.responsibilities if len(b.split()) < 5)
+            if short_bullets > 2:
+                suggestions.append(ImprovementSuggestion(
+                    category="Detail",
+                    priority=3,
+                    suggestion="Expand on short bullet points to provide more context about your contributions.",
+                ))
+                
+        # Priority 4: Partially matched skills need more evidence
         for skill in skill_results["partial_required"][:2]:
             suggestions.append(ImprovementSuggestion(
                 category="Strengthen Evidence",
-                priority=2,
+                priority=3,
                 suggestion=f"Provide more concrete examples for '{skill}' in your experience section",
                 affected_skills=[skill],
             ))
         
-        # Priority 3: Experience section improvements
-        if not resume.experience:
-            suggestions.append(ImprovementSuggestion(
-                category="Experience",
-                priority=3,
-                suggestion="Add a detailed work experience section with responsibilities and achievements",
-            ))
-        else:
-            # Check for metrics
-            has_metrics = any(
-                re.search(r'\d+%|\d+ (users|customers|requests)', 
-                         " ".join(exp.responsibilities))
-                for exp in resume.experience
-            )
-            if not has_metrics:
-                suggestions.append(ImprovementSuggestion(
-                    category="Quantify Impact",
-                    priority=3,
-                    suggestion="Add quantifiable metrics to your experience (e.g., 'Improved performance by 40%')",
-                ))
-        
-        # Priority 4: Missing optional skills
+        # Priority 5: Missing optional skills
         for skill in skill_results["missing_optional"][:2]:
             suggestions.append(ImprovementSuggestion(
                 category="Nice to Have",
@@ -376,8 +488,25 @@ This score reflects:
                 suggestion=f"Consider adding '{skill}' if you have experience with it",
                 affected_skills=[skill],
             ))
-        
+            
         return suggestions[:max_suggestions]
+    
+    def _detect_domain(self, jd: ParsedJobDescription) -> str:
+        """Detect job domain from JD text/title."""
+        # Handle potential None title
+        title_text = jd.title if jd.title else ""
+        text = (title_text + " " + jd.raw_text).lower()
+        
+        if any(w in text for w in ["nurse", "medical", "patient", "clinical", "healthcare", "doctor"]):
+            return "healthcare"
+        if any(w in text for w in ["financial", "finance", "accounting", "audit", "analyst", "investment"]):
+            return "finance"
+        if any(w in text for w in ["software", "developer", "engineer", "data", "full stack", "backend", "frontend"]):
+            return "software_engineering"
+        if any(w in text for w in ["marketing", "brand", "social media", "content", "campaign"]):
+            return "marketing"
+            
+        return "general"
 
 
 # Module-level convenience function

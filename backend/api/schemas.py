@@ -3,6 +3,7 @@ Pydantic models for API request/response types.
 All schemas match the system design document exactly.
 """
 from pydantic import BaseModel, Field
+
 from typing import Optional, Literal
 from enum import Enum
 from datetime import datetime
@@ -34,6 +35,8 @@ class SkillCategory(str, Enum):
     TOOLS = "tools"
     CLOUD = "cloud"
     SOFT_SKILLS = "soft_skills"
+    CERTIFICATIONS = "certifications"
+    HEALTHCARE = "healthcare"
     OTHER = "other"
 
 

@@ -111,6 +111,18 @@ if __name__ == "__main__":
     print("=" * 60)
     
     skills = test_skill_extraction()
+    
+    # Test ProjectEntry specifically
+    try:
+        from api.schemas import ProjectEntry
+        print("Testing ProjectEntry...")
+        p = ProjectEntry(name="Test", description="Desc", source_text="Src")
+        print("ProjectEntry OK")
+    except Exception as e:
+        print(f"ProjectEntry FAILED: {e}")
+        import traceback
+        traceback.print_exc()
+
     sections = test_section_detection()
     
     print("\n" + "=" * 60)

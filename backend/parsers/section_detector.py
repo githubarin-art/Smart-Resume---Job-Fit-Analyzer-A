@@ -175,10 +175,10 @@ def _find_section_boundaries(text_blocks: list[dict]) -> dict[str, tuple[int, in
                 # Check for start of line with optional decoration, numbering, and trailing decoration
                 combined_pattern = (
                     f"(?:^|\\n)\\s*"
-                    f"(?:[-–—*=_>►▶→•\\[\\(]+\\s*)?"  # Include arrows and bullets
+                    f"(?:[-–—*=_<>►▶→•\\[\\(#]+\\s*)?"  # Include arrows, bullets, hash, and brackets
                     f"(?:\\d+[\\.)\\-]?|[IVX]+\\.)?\\s*"
                     f"{pattern}"
-                    f"(?:\\s*[:\\-–—._\\]\\)]*)?\\s*"
+                    f"(?:\\s*[:\\-–—._\\]\\)*=_<>►▶→•#]*)?\\s*"
                     f"(?:$|\\n|[|,])"
                 )
                 
@@ -698,6 +698,28 @@ def _extract_skills_from_text(text: str) -> list:
         (r"\bedx\b", "edX", SkillCategory.OTHER),
         (r"\bforage\b", "Forage", SkillCategory.OTHER),
         (r"\blinkedin\s*learning\b", "LinkedIn Learning", SkillCategory.OTHER),
+        
+        # Healthcare & Medical
+        (r"\bpatient\s*care\b", "Patient Care", SkillCategory.HEALTHCARE),
+        (r"\bvital\s*signs\b", "Vital Signs", SkillCategory.HEALTHCARE),
+        (r"\bphlebotomy\b", "Phlebotomy", SkillCategory.HEALTHCARE),
+        (r"\bemr\b|electronic\s*medical\s*records?\b", "EMR", SkillCategory.TOOLS),
+        (r"\behr\b|electronic\s*health\s*records?\b", "EHR", SkillCategory.TOOLS),
+        (r"\bhipaa\b", "HIPAA", SkillCategory.HEALTHCARE),
+        (r"\bbls\b|basic\s*life\s*support\b", "BLS", SkillCategory.CERTIFICATIONS),
+        (r"\bacls\b|advanced\s*cardiac\s*life\s*support\b", "ACLS", SkillCategory.CERTIFICATIONS),
+        (r"\bcpr\b", "CPR", SkillCategory.CERTIFICATIONS),
+        (r"\btriage\b", "Triage", SkillCategory.HEALTHCARE),
+        (r"\bmedication\s*administration\b", "Medication Administration", SkillCategory.HEALTHCARE),
+        (r"\bclinical\s*documentation\b", "Clinical Documentation", SkillCategory.HEALTHCARE),
+        (r"\bmedical\s*billing\b", "Medical Billing", SkillCategory.HEALTHCARE),
+        (r"\bicd[- ]?10\b", "ICD-10", SkillCategory.HEALTHCARE),
+        (r"\bepic\b", "Epic", SkillCategory.TOOLS),
+        (r"\bcerner\b", "Cerner", SkillCategory.TOOLS),
+        (r"\bmeditech\b", "Meditech", SkillCategory.TOOLS),
+        (r"\bnursing\b", "Nursing", SkillCategory.HEALTHCARE),
+        (r"\banatomy\b", "Anatomy", SkillCategory.HEALTHCARE),
+        (r"\bphysiology\b", "Physiology", SkillCategory.HEALTHCARE),
     ]
     
     text_lower = text.lower()

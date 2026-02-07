@@ -3,7 +3,7 @@ Job Description parser.
 Extracts skills, requirements, and classifications from JD text.
 """
 import re
-import spacy
+
 from typing import Optional
 
 
@@ -18,8 +18,10 @@ def parse_job_description(jd_text: str) -> "ParsedJobDescription":
         ParsedJobDescription with skills and requirements
     """
     from api.schemas import ParsedJobDescription, JDRequirement, SkillPriority
+    import spacy
     
     # Extract job title (usually first line or after "Title:")
+    title = _extract_title(jd_text)
     title = _extract_title(jd_text)
     
     # Extract company name
@@ -35,8 +37,8 @@ def parse_job_description(jd_text: str) -> "ParsedJobDescription":
     
     # Process requirements section
     for section_name, section_text in sections.items():
-        if any(k in section_name.lower() for k in ["requirement", "qualif", "must", "essential"]):
-            # Required skills section
+        if any(k in section_name.lower() for k in ["requirement", "qualif", "must", "essential", "responsibilit", "duties"]):
+            # Required skills section (including responsibilities where skills are often listed)
             skills, reqs = _extract_skills_and_requirements(section_text, SkillPriority.REQUIRED)
             required_skills.extend(skills)
             requirements.extend(reqs)
@@ -264,6 +266,48 @@ def _extract_skills_from_text(text: str) -> list[str]:
         (r"\bmarketing\b", "Marketing"),
         (r"\bsales\b", "Sales"),
         (r"\bexcel\b", "Excel"),
+        (r"\bpower\s?bi\b", "Power BI"),
+        (r"\btableau\b", "Tableau"),
+        
+        # Finance & Accounting
+        (r"\bgaap\b", "GAAP"),
+        (r"\bifrs\b", "IFRS"),
+        (r"\bsox\b", "SOX"),
+        (r"\bcpa\b", "CPA"),
+        (r"\bcfa\b", "CFA"),
+        (r"\btax\b|\btaxation\b", "Taxation"),
+        (r"\baudit\b|\bauditing\b", "Auditing"),
+        (r"\baccounting\b", "Accounting"),
+        (r"\bfinancial\s+analysis\b", "Financial Analysis"),
+        (r"\bfinancial\s+modeling\b", "Financial Modeling"),
+        (r"\bbudgeting\b", "Budgeting"),
+        (r"\bforecasting\b", "Forecasting"),
+        (r"\bvariance\s+analysis\b", "Variance Analysis"),
+        (r"\bpayroll\b", "Payroll"),
+        
+        # Healthcare
+        (r"\bhcfa\b", "HCFA"),
+        (r"\bhipaa\b", "HIPAA"),
+        (r"\bemr\b|\behr\b", "EMR/EHR"),
+        (r"\bepic\b", "Epic"),
+        (r"\bcerner\b", "Cerner"),
+        (r"\bmeditech\b", "Meditech"),
+        (r"\bpatient\s+care\b", "Patient Care"),
+        (r"\btriag(?:e|ing)\b", "Triage"),
+        (r"\bclinical\b", "Clinical Skills"),
+        (r"\bphlebotomy\b", "Phlebotomy"),
+        (r"\bbls\b", "BLS"),
+        (r"\bacls\b", "ACLS"),
+        (r"\bcnor\b", "CNOR"),
+        (r"\brn\b|\bregistered\s+nurse\b", "Registered Nurse"),
+        
+         # General Business
+        (r"\bstrategic\s+planning\b", "Strategic Planning"),
+        (r"\bnegotiation\b", "Negotiation"),
+        (r"\boperations\b", "Operations Management"),
+        (r"\bcompliance\b", "Compliance"),
+        (r"\brisk\s+management\b", "Risk Management"),
+        (r"\bdata\s+entry\b", "Data Entry"),
     ]
     
     text_lower = text.lower()
