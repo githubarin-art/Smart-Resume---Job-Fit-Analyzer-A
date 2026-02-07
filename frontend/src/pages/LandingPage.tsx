@@ -53,12 +53,12 @@ export default function LandingPage() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                         <button
                             onClick={() => navigate('/mode')}
-                            className="group btn btn-primary h-14 text-lg px-8 shadow-xl shadow-[var(--color-primary-500)]/20 hover:shadow-[var(--color-primary-500)]/40 transition-all"
+                            className="group btn btn-primary h-14 text-lg px-8 shadow-xl shadow-[var(--color-primary-500)]/20 hover:shadow-[var(--color-primary-500)]/40 active:scale-95 transition-all"
                         >
                             <span>Start Free Analysis</span>
                             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                         </button>
-                        <a href="#features" className="btn btn-secondary h-14 text-lg px-8">
+                        <a href="#features" className="btn btn-secondary h-14 text-lg px-8 active:scale-95 transition-transform">
                             How It Works
                         </a>
                     </div>
@@ -237,7 +237,7 @@ export default function LandingPage() {
                             </p>
                             <button
                                 onClick={() => navigate('/mode')}
-                                className="btn h-14 text-lg px-10 bg-white text-[var(--color-primary-700)] font-bold hover:bg-[var(--color-neutral-100)] shadow-xl"
+                                className="btn h-14 text-lg px-10 bg-white text-[var(--color-primary-700)] font-bold hover:bg-[var(--color-neutral-100)] shadow-xl active:scale-95 transition-all"
                             >
                                 Analyze My Resume Free
                                 <ArrowRight className="w-5 h-5 ml-2" />
