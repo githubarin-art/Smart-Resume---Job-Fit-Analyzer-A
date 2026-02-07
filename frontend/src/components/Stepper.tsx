@@ -9,7 +9,6 @@ interface Step {
 interface StepperProps {
     steps: Step[];
     currentStep: number;
-    onStepClick?: (step: number) => void;
     completedSteps?: number[];
 }
 
@@ -20,7 +19,6 @@ interface StepperProps {
 export const Stepper: React.FC<StepperProps> = ({
     steps,
     currentStep,
-    onStepClick,
     completedSteps = [],
 }) => {
     const getStepStatus = (stepId: number) => {

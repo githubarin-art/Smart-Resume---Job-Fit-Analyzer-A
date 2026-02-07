@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { SessionState } from '../services/types';
 import { evaluateResume } from '../services/api';
 import { CheckCircle2, Circle } from 'lucide-react';

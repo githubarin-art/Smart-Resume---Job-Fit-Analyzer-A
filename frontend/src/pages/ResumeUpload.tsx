@@ -10,7 +10,7 @@ interface ResumeUploadProps {
     setSession: React.Dispatch<React.SetStateAction<SessionState>>;
 }
 
-export default function ResumeUpload({ session, setSession }: ResumeUploadProps) {
+export default function ResumeUpload({ setSession }: ResumeUploadProps) {
     const navigate = useNavigate();
     const [error, setError] = useState<string | null>(null);
     const [isUploading, setIsUploading] = useState(false);
