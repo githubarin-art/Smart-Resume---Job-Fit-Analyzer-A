@@ -44,14 +44,7 @@ const routeToStep: Record<string, number> = {
   '/results': 5,
 };
 
-// Step to route mapping for V1
-const stepToRoute: Record<number, string> = {
-  1: '/mode',
-  2: '/input',
-  3: '/review',
-  4: '/analyzing',
-  5: '/results',
-};
+
 
 // Update Stepper definitions to match V1 flow
 export const V1_STEPS = [
@@ -87,12 +80,7 @@ function AppContent() {
     navigate('/');
   };
 
-  const handleStepClick = (step: number) => {
-    const completedSteps = getCompletedSteps();
-    if (completedSteps.includes(step) && stepToRoute[step]) {
-      navigate(stepToRoute[step]);
-    }
-  };
+
 
   // Determine if we should show back button
   const showBackButton = currentStep > 0 && location.pathname !== '/';
@@ -108,7 +96,6 @@ function AppContent() {
     <Layout
       currentStep={currentStep}
       completedSteps={getCompletedSteps()}
-      onStepClick={handleStepClick}
       onReset={resetSession}
       showReset={!!session.sessionId}
       onBack={showBackButton ? handleBack : undefined}
