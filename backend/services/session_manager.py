@@ -28,9 +28,9 @@ class FileSessionManager:
             # Update timestamp
             session.updated_at = datetime.now()
             
-            # Serialize using Pydantic's json() method
+            # Serialize using Pydantic V1 json() method
             with open(file_path, "w", encoding="utf-8") as f:
-                f.write(session.model_dump_json(indent=2))
+                f.write(session.json(indent=2))
                 
             logger.debug(f"Saved session {session.session_id}")
         except Exception as e:
@@ -49,8 +49,8 @@ class FileSessionManager:
             with open(file_path, "r", encoding="utf-8") as f:
                 data = f.read()
                 
-            # Parse using Pydantic
-            session = SessionData.model_validate_json(data)
+            # Parse using Pydantic V1
+            session = SessionData.parse_raw(data)
             return session
         except Exception as e:
             logger.error(f"Failed to load session {session_id}: {str(e)}")

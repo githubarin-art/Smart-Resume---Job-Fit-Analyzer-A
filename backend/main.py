@@ -40,7 +40,12 @@ origins = [
 # Add production origins from environment
 import os
 prod_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
-origins.extend([origin.strip() for origin in prod_origins if origin.strip()])
+for origin in prod_origins:
+    origin = origin.strip().rstrip("/")
+    if origin:
+        origins.append(origin)
+
+print(f"Allowed Origins: {origins}")
 
 app.add_middleware(
     CORSMiddleware,
