@@ -7,7 +7,6 @@ interface LayoutProps {
     children: React.ReactNode;
     currentStep?: number;
     completedSteps?: number[];
-    onStepClick?: (step: number) => void;
     onReset?: () => void;
     showReset?: boolean;
     onBack?: () => void;
@@ -19,7 +18,6 @@ export const Layout: React.FC<LayoutProps> = ({
     children,
     currentStep = 0,
     completedSteps = [],
-    onStepClick,
     onReset,
     showReset = false,
     onBack,
@@ -100,7 +98,6 @@ export const Layout: React.FC<LayoutProps> = ({
                             steps={steps}
                             currentStep={currentStep}
                             completedSteps={completedSteps}
-                            onStepClick={onStepClick}
                         />
                     </div>
                 </div>
