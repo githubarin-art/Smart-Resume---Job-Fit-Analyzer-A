@@ -13,6 +13,7 @@ import type {
 } from './types';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
+console.log('API Base URL:', API_BASE);
 
 const api = axios.create({
     baseURL: API_BASE,

@@ -61,7 +61,7 @@ export default function ResumeJobInput({ session, setSession, mode, onNext }: Re
                 error: null
             });
         } catch (err) {
-            setUploadError("Failed to parse resume. Please try again.");
+            setUploadError(err instanceof Error ? err.message : "Failed to parse resume. Please try again.");
             console.error(err);
         } finally {
             setIsUploading(false);
